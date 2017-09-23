@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>乐乐</title>
+	<link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
+	<link rel="icon" href="images/logo.jpg" type="image/x-icon">
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+			-webkit-tap-highlight-color: transparent;
+			-webkit-box-sizing: border-box;
+		}
+		html,body{
+			width: 100%;
+			height:100%;
+			overflow: hidden;
+			background: url(images/bg.jpg) no-repeat;
+			background-size: cover;
+		}
+		.content{
+			width:200px;
+			height:280px;
+			position: absolute;
+			bottom:135px;
+			right:0;
+			left:0;
+			margin:auto;
+			-webkit-perspective: 1800px;
+			        perspective: 1800px;
+		}
+		.wrap{
+			width:200px;
+			height:280px;
+			-webkit-transform-style: preserve-3d;
+			        transform-style: preserve-3d;
+			-webkit-transform-origin:50%;
+			        transform-origin:50%;
+			/*float:left; 
+			margin-right:60px;*/
+			/*animation:rotateImg 28s linear infinite;*/
+		}
+		.wrap ul li{
+			list-style: none;
+			border:1px solid #f7ddaa;
+			-webkit-box-shadow: 0px 1px 15px #f7ddaa;
+			        box-shadow: 0px 1px 15px #f7ddaa;
+			border-radius: 5px;
+			float: left;
+			background-color: #fff;
+			position:absolute;
+		}
+		/*.wrap:hover{
+			animation-play-state: paused;
+		}*/
+		.wrap ul li:hover img{
+			-webkit-transform: scale(1.3);
+			        transform: scale(1.3);
+			border:3px solid pink;
+			-webkit-box-shadow: 0 0 15px 3px pink;
+			        box-shadow: 0 0 15px 3px pink;
+			padding: 5px;
+			-webkit-transition: all 0.5s;
+			transition: all 0.5s;
+		}
+		.wrap ul li img{
+			width: 200px;
+			height:280px;
+			padding:15px;
+		}
+		.wrap ul li:nth-child(1){
+			-webkit-transform:rotateY(0) translateZ(500px);
+			        transform:rotateY(0) translateZ(500px);
+		}
+		.wrap ul li:nth-child(2){
+			-webkit-transform:rotateY(45deg) translateZ(500px);
+			        transform:rotateY(45deg) translateZ(500px);
+		}
+		.wrap ul li:nth-child(3){
+			-webkit-transform:rotateY(90deg) translateZ(500px);
+			        transform:rotateY(90deg) translateZ(500px);
+		}
+		.wrap ul li:nth-child(4){
+			-webkit-transform:rotateY(135deg) translateZ(500px);
+			        transform:rotateY(135deg) translateZ(500px);
+		}
+		.wrap ul li:nth-child(5){
+			-webkit-transform:rotateY(180deg) translateZ(500px);
+			        transform:rotateY(180deg) translateZ(500px);
+		}
+		.wrap ul li:nth-child(6){
+			-webkit-transform:rotateY(225deg) translateZ(500px);
+			        transform:rotateY(225deg) translateZ(500px);
+		}
+		.wrap ul li:nth-child(7){
+			-webkit-transform:rotateY(270deg) translateZ(500px);
+			        transform:rotateY(270deg) translateZ(500px);
+		}
+		.wrap ul li:nth-child(8){
+			-webkit-transform:rotateY(315deg) translateZ(500px);
+			        transform:rotateY(315deg) translateZ(500px);
+		}
+		@-webkit-keyframes rotateImg{
+			from{
+				-webkit-transform: rotateY(0deg);
+				        transform: rotateY(0deg);
+			}
+			to{
+				-webkit-transform: rotateY(360deg);
+				        transform: rotateY(360deg);
+			}
+		}
+		@keyframes rotateImg{
+			from{
+				-webkit-transform: rotateY(0deg);
+				        transform: rotateY(0deg);
+			}
+			to{
+				-webkit-transform: rotateY(360deg);
+				        transform: rotateY(360deg);
+			}
+		}
+		.music{
+			width:75px;
+			height:75px;
+			position: absolute;
+			top:20px;
+			right:30px;
+			cursor: pointer;
+		}
+		.music div{
+			width:75px;
+			height:75px;
+			position: absolute;
+			top:0px;
+			right:0px;
+			background: url(images/music_disc.png) no-repeat;
+			background-size: cover;
+			/*-webkit-animation: rot 5s linear infinite;
+			        animation: rot 5s linear infinite;*/
+		}
+		.music img{
+			position: absolute;
+			top:0px;
+			right:0px;
+			-webkit-transform-origin: top right;
+			        transform-origin: top right;
+			-webkit-transform: rotate(-35deg);
+			        transform: rotate(-35deg);
+			-webkit-transition: all 1s;
+			transition: all 1s;
+		}
+		@-webkit-keyframes rot{
+			from{
+				-webkit-transform: rotate(0deg);
+				        transform: rotate(0deg);
+			}
+			to{
+				-webkit-transform: rotate(360deg);
+				        transform: rotate(360deg);
+			}
+		}
+		@keyframes rot{
+			from{
+				-webkit-transform: rotate(0deg);
+				        transform: rotate(0deg);
+			}
+			to{
+				-webkit-transform: rotate(360deg);
+				        transform: rotate(360deg);
+			}
+		}
+		.loading{
+			width: 100%;
+			height: 100%;
+		}
+		.loading span{
+			display: block;
+			width: 150px;
+			height: 150px;
+			background:url(images/loading.gif);
+			background-size: contain;
+			border:2px solid #4ea292;
+			border-radius: 5px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="music">
+		<div></div>
+		<img src="images/music_pointer.png" alt="">
+	</div>
+	<audio src="music/V.A. - moonMusic.mp3" autoplay loop></audio>
+	<div class="content">
+		<div class="wrap">
+			<ul>
+				<li>
+					<img src="images/1.jpg" alt="">
+				</li>
+				<li>
+					<img src="images/2.jpg" alt="">
+				</li>
+				<li>
+					<img src="images/3.jpg" alt="">
+				</li>
+				<li>
+					<img src="images/4.jpg" alt="">
+				</li>
+				<li>
+					<img src="images/5.jpg" alt="">
+				</li>
+				<li>
+					<img src="images/6.jpg" alt="">
+				</li>
+				<li>
+					<img src="images/7.jpg" alt="">
+				</li>
+				<li>
+					<img src="images/8.jpg" alt="">
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="loading">
+		<span></span>
+	</div>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/snowfall.jquery.js"></script>
+	<script>
+		// 操作
+		(function(){
+			var $music=$('.music');
+			var $audio=$('audio')[0];
+			var $wrap=$('.wrap');
+			$audio.addEventListener('canplaythrough',function(){
+				$('.loading span').fadeOut();
+			});
+			$audio.addEventListener('play',function(){
+				$music.find('img').css({
+					'transform':'rotate(-10deg)',
+					'-webkit-transform':'rotate(-10deg)',
+				});
+				$music.find('div').css({
+					'animation':'rot 8s linear infinite',
+					'-webkit-animation':'rot 8s linear infinite',
+				});
+				$wrap.css({
+					'animation':'rotateImg 28s linear infinite',
+					'-webkit-animation':'rotateImg 28s linear infinite',
+				});
+			});
+			$music.on('click',function(){
+				if($audio.paused){
+	  			// $audio.load();
+	  			$audio.play();
+	  			flowerFall();
+	  		}else if(!$audio.paused){
+	  			$audio.pause();
+	  			$music.find('img').css({
+	  				'transform':'rotate(-35deg)',
+	  				'-webkit-transform':'rotate(-35deg)',
+	  			});
+	  			$music.find('div').css({
+	  				'animation-play-state':'paused',
+	  				'-webkit-animation-play-state':'paused',
+	  			});
+	  			$wrap.css({
+	  				'animation-play-state':'paused',
+	  				'-webkit-animation-play-state':'paused',
+	  			});
+	  			$(document).snowfall('clear');
+	  		}
+
+	  		});
+	  		var $loadingSpan=$('.loading span');
+			$(window).on('resize',function(){
+				$('.loading span').css({
+					'top':($(window).height()-$loadingSpan.height())/2,
+					'left':($(window).width()-$loadingSpan.width())/2,
+				});
+			}).trigger('resize');
+		})();
+
+		function flowerFall(){
+			$(document).snowfall('clear');
+			$(document).snowfall({
+				image: "images/huaban.png",
+				flakeCount:18,
+				minSize: 3,
+				maxSize: 25,
+				maxSpeed:3
+			});
+		}
+		flowerFall();
+
+
+	</script>
+
+</body>
+</html>
